@@ -1,3 +1,7 @@
+def check_illigal_layer_name(name)
+  name.index("レイヤー") == 0
+end
+
 class LayerSet
   attr_accessor :name, :layer_names, :layer_sets, :parent
 
@@ -22,7 +26,9 @@ class LayerSet
       layer_set.traverse(name)
     end
     @layer_names.each do |layer_name|
-      puts "#{name}/#{layer_name}"
+      if check_illigal_layer_name(layer_name)
+        puts "#{name}/#{layer_name}"
+      end
     end
   end
 end
