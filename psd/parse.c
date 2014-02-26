@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FILEPSD2 "test.psd2" // name of file
+#define FILEPSD2 "test2.psd" // name of file
 
 // used to check that the .psd file has not been saved commpressed
 #define COMPRESSED_FLAG 0x80000000UL
@@ -31,6 +31,19 @@ void skip(FILE *fp, int size){
 short read_word(FILE *fp, unsigned char *word){
   fread(word, 2, 1, fp);
   return word2short(word);
+}
+
+void writeline(FILE *ofp, char *str, int byte){
+  fwrite(str, sizeof(char), byte, ofp);
+  fwrite("\n", sizeof(char), 1, ofp);
+}
+
+char* read_pascal_string(FILE *fp, unsigned char *byte){
+  char *layer_name;
+  fread(byte, sizeof(char), 1, fp);
+  layer_name = (char *)malloc(sizeof(char) * *byte);
+  fread(layer_name, sizeof(char), *byte, fp);
+  return layer_name;
 }
 
 void skip_header(FILE *fp){
@@ -83,6 +96,8 @@ int main(void){
     printf("open error\n");
     exit(0);
   }
+  ofp = fopen("tmp.txt", "wb");
+
   skip_header(fp);
 
   // Skip color mode data section
@@ -144,31 +159,19 @@ int main(void){
   length = dword2long(dword);
 
   // layer mask info
-  fread(&dword, sizeof(dword), 1, fp);
-  length = dword2long(dword);
-  /* printf("%lu\n", length); */
-  fseek(fp, length, SEEK_CUR);
+  skip_dword(fp, dword);
 
   // Layer blending ranges data
-  fread(&dword, sizeof(dword), 1, fp);
-  length = dword2long(dword);
-  /* printf("%lu\n", length); */
-  fseek(fp, length, SEEK_CUR);
+  skip_dword(fp, dword);
 
-  // Layer Name
-  fread(&byte, sizeof(byte), 1, fp);
-  // printf("%i\n", byte);
-  // sjis で入ってる
-  layer_name = (char *)malloc(sizeof(char) * byte);
-  fread(layer_name, sizeof(char), byte, fp);
-  /* printf("%x\n", layer_name[0]); */
-  /* printf("%x\n", layer_name[1]); */
-  fclose(fp);
+  // Layer Name; sjis で入ってる
+  layer_name = read_pascal_string(fp, &byte);
 
-  ofp = fopen("tmp.txt", "wb");
-  fwrite(layer_name, sizeof(char), byte, ofp);
-  fwrite("\n", sizeof(char), 1, ofp);
+  writeline(ofp, layer_name, byte);
+  free(layer_name);
+
   fclose(ofp);
+  fclose(fp);
 }
 
   /* printf("%ld\n", sizeof(word)); */
