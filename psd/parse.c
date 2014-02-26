@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FILEPSD2 "test.psd" // name of file
+#define FILEPSD2 "test2.psd" // name of file
 
 // used to check that the .psd file has not been saved commpressed
 #define COMPRESSED_FLAG 0x80000000UL
@@ -90,7 +90,7 @@ void skip_header(FILE *fp){
 void search_layer(FILE *fp, FILE *ofp){
   unsigned long length, layer_count, layer_length, layer_head_fpt;
   unsigned short slength;
-  unsigned char byte;
+  unsigned char byte, layer_flag;
   unsigned char word[2];
   unsigned char dword[4];
   char *layer_name;
@@ -127,8 +127,7 @@ void search_layer(FILE *fp, FILE *ofp){
   /* printf("%x\n", byte); */
 
   // flags
-  fread(&byte, sizeof(byte), 1, fp);
-  /* printf("%x\n", byte); */
+  fread(&layer_flag, sizeof(byte), 1, fp);
 
   // Filler
   fread(&byte, sizeof(byte), 1, fp);
@@ -153,8 +152,11 @@ void search_layer(FILE *fp, FILE *ofp){
   layer_name = read_pascal_string(fp, &byte);
 
   writeline(ofp, layer_name, byte);
+  char layer_set[] = "<LayerSet>";
+  if( (layer_flag & 16) && (*layer_name != '<') ){
+    writeline(ofp, layer_set, 10);
+  }
   free(layer_name);
-  layer_name = NULL;
 
   //次のレイヤーへ
   /* printf("fp %ld\n", ftell(fp)); */

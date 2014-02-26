@@ -1,59 +1,346 @@
-AあB
-AあB のコピー
-bg
+AAAAAA
+</Layer set>
+</Layer set>
+BBBB
+レイヤー 38
+雲
+BackBack
+<LayerSet>
+</Layer set>
 </Layer group>
-Shape 4
-Shape 8
-Shape 9 copy
-Shape 3
-Shape 5
-Shape 2
-Shape 6
-Shape 1 copy
-Shape 1
+レイヤー23
+レイヤー24
+レイヤー25
+レイヤー27
+レイヤー28
+レイヤー26
+レイヤー20
+レイヤー21
+レイヤー22
+レイヤー 30
+建物
+建物
+<LayerSet>
+レイヤー18
+レイヤー13
+レイヤー 31
+レイヤー 42
+レイヤー 43
+レイヤー14
+レイヤー15
+レイヤー 37
+レイヤー16
+レイヤー17
+</Layer set>
+木
+グラウンド
+フェンス
+網目
+線画
+<LayerSet>
+グランド
+<LayerSet>
+</Layer set>
+レイヤー8
+レイヤー12
+レイヤー9
+レイヤー10
+レイヤー11
+レイヤー7
+棒
+クッション
+マット
+<LayerSet>
+</Layer set>
+レイヤー2
+レイヤー3
+レイヤー4
+レイヤー 32
+レイヤー5
+レイヤー 33
+レイヤー6
+レイヤー 34
+レイヤー1
+レイヤー 35
+モブ
+モブ
+<LayerSet>
+背景線画
+<LayerSet>
 </Layer group>
-Shape 7
-Group 1
-marker yellow
+★キャラ塗り のコピー
+背景エフェクト
+<LayerSet>
+</Layer set>
+</Layer set>
+アウトライン
+</Layer set>
+B
+S1
+S1 のコピー
+調整S1
+調整S1のコピー
+R
+S1 のコピー 2
+チーク
+H
+肌
+<LayerSet>
+</Layer set>
+B
+S1
+S2
+S2
+調整
+S3
+R
+肌透け
+H
+天使の輪
+髪
+<LayerSet>
+</Layer set>
 </Layer group>
-Shape 4
-Shape 8
-Shape 9 copy
-Shape 3
-Shape 5
-Shape 2
-Shape 6
-Shape 1 copy
-Shape 1
+B
+S1
+S2
+R
+H
+ベース
+<LayerSet>
+</Layer set>
+B
+S1
+S2
+R
+H
+ライン緑
+<LayerSet>
+</Layer set>
+B
+S1
+S2
+R
+H
+ライン黄
+<LayerSet>
+パンツ
+<LayerSet>
+</Layer set>
 </Layer group>
-Shape 7
-Group 1
-marker red
+B
+S1
+調整S1
+S2
+R
+H
+ベース
+<LayerSet>
+</Layer set>
+B
+S1
+S2
+R
+H
+ライン緑
+<LayerSet>
+</Layer set>
+B
+S1
+S2
+R
+H
+ライン紫
+<LayerSet>
+トップス
+<LayerSet>
+</Layer set>
+体
+トレス_パンツベースS2
+トレス_パンツ黄色S2
+トレス_トップベースS2
+黒溜り
+髪 
+トレス_髪S3
+トレス_肌S2
+キャラ線画
+<LayerSet>
+</Layer set>
+体 のコピー
+黒溜り のコピー
+髪  のコピー
+キャラ線画 のコピー
+<LayerSet>
+着彩1
+<LayerSet>
+</Layer set>
+ほっぺたの線
+トレス
+</Layer set>
+B
+目のくぼみ
+目のくぼみ のコピー
+目のくぼみ
+<LayerSet>
+</Layer set>
+唇
+H
+ベース
+影1_目影1
+口
+口 のコピー
+口
+<LayerSet>
+</Layer set>
+B
+鼻
+鼻 のコピー
+鼻
+<LayerSet>
+</Layer set>
+B
+眉毛
+眉毛 のコピー
+眉
+<LayerSet>
+顔
+<LayerSet>
+</Layer set>
+目ふち
+まぶた影_肌2
+上まぶた
 </Layer group>
-Shape 4
-Shape 8
-Shape 9 copy
-Shape 3
-Shape 5
-Shape 2
-Shape 6
-Shape 1 copy
-Shape 1
+B
+明部
+補正
+赤み
+H
+アイライン
+<LayerSet>
+</Layer set>
+目_1
+トレス_肌2
+目_1 のコピー
+線画
+<LayerSet>
+目
+<LayerSet>
+</Layer set>
 </Layer group>
-Shape 7
-Group 1
-marker green
+レイヤー 37
+H のコピー
+ぽ
+<LayerSet>
+つむじ
+はね毛
+肌透け
+着彩2
+<LayerSet>
+★キャラ塗り
+<LayerSet>
 </Layer group>
-Shape 4
-Shape 8
-Shape 9 copy
-Shape 3
-Shape 5
-Shape 2
-Shape 6
-Shape 1 copy
-Shape 1
+レイヤー 73
+レイヤー 75
+キャラクターエフェクト
+<LayerSet>
 </Layer group>
-Shape 7
-Group 1
-marker blue
+レイヤー 74
+レイヤー 44
+レイヤー 71
+レイヤー 72
+</Layer group>
+レイヤー 58
+レイヤー 65
+レイヤー 66
+</Layer group>
+レイヤー 67
+レイヤー 68
+レイヤー 69
+レイヤー 70
+固形
+<LayerSet>
+空
+<LayerSet>
+全体エフェクト
+<LayerSet>
+</Layer set>
+枠 のコピー
+枠
+枠
+枠
+<LayerSet>
+第２ラフ　結合
+</Layer set>
+1.jpg
+立絵 のコピー
+レタッチさんへ のコピー
+<LayerSet>
+</Layer set>
+レイヤー3 のコピー
+</Layer set>
+ちどりおフォーマット のコピー
+レイヤー4 のコピー
+レイヤー7 のコピー
+レイヤー6 のコピー
+レイヤー5 のコピー
+線画依頼 のコピー
+<LayerSet>
+仕様書 のコピー
+データ詳細 のコピー
+詳細（捨てないで下さい）
+<LayerSet>
+</Layer group>
+服
+</Layer group>
+春宮つぐみ_パレット
+同一人物
+同一人物
+レイヤー 19
+レイヤー 18
+レイヤー 20
+同一人物
+設定
+<LayerSet>
+</Layer group>
+スクリーンショット 2013-12-19 2
+レイヤー 11
+肌塗り参考
+<LayerSet>
+レイヤー 2
+★塗りのお願い★
+★人物色指定
+<LayerSet>
+</Layer group>
+仮色
+肌
+春宮つぐみ_パレット
+トップス
+パンツ
+レイヤー 23
+パレット
+<LayerSet>
+</Layer group>
+学校のグラウンドです。 →の様な
+レイヤー 21
+トラック
+レイヤー91
+★背景色指定
+<LayerSet>
+</Layer group>
+仕様書 のコピー
+外
+外
+全体
+<LayerSet>
+</Layer set>
+背景 のコピー 2
+レイヤー 10 のコピー
+レイヤー 11 のコピー
+背景 のコピー
+<LayerSet>
+レイヤー 36
+</Layer group>
+参考
+影置き指定など
+影置き指定など
+<LayerSet>
