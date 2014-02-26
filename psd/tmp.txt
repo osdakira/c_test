@@ -1,1 +1,59 @@
-背景 のコピー 3
+AあB
+AあB のコピー
+bg
+</Layer group>
+Shape 4
+Shape 8
+Shape 9 copy
+Shape 3
+Shape 5
+Shape 2
+Shape 6
+Shape 1 copy
+Shape 1
+</Layer group>
+Shape 7
+Group 1
+marker yellow
+</Layer group>
+Shape 4
+Shape 8
+Shape 9 copy
+Shape 3
+Shape 5
+Shape 2
+Shape 6
+Shape 1 copy
+Shape 1
+</Layer group>
+Shape 7
+Group 1
+marker red
+</Layer group>
+Shape 4
+Shape 8
+Shape 9 copy
+Shape 3
+Shape 5
+Shape 2
+Shape 6
+Shape 1 copy
+Shape 1
+</Layer group>
+Shape 7
+Group 1
+marker green
+</Layer group>
+Shape 4
+Shape 8
+Shape 9 copy
+Shape 3
+Shape 5
+Shape 2
+Shape 6
+Shape 1 copy
+Shape 1
+</Layer group>
+Shape 7
+Group 1
+marker blue

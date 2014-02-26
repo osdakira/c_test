@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FILEPSD2 "test2.psd" // name of file
+#define FILEPSD2 "test.psd" // name of file
 
 // used to check that the .psd file has not been saved commpressed
 #define COMPRESSED_FLAG 0x80000000UL
@@ -12,6 +12,7 @@
 unsigned short word2short(unsigned char *word){
   return (word[0] << 8) | word[1];
 }
+
 unsigned long dword2long(unsigned char *word){
   return (word[0] << 24) | (word[1] << 16) | (word[2] << 8) | word[3];
 }
@@ -31,6 +32,12 @@ void skip(FILE *fp, int size){
 short read_word(FILE *fp, unsigned char *word){
   fread(word, 2, 1, fp);
   return word2short(word);
+}
+
+long read_dword(FILE *fp, unsigned char *dword){
+  unsigned long length;
+  fread(dword, 4, 1, fp);
+  return dword2long(dword);
 }
 
 void writeline(FILE *ofp, char *str, int byte){
@@ -80,41 +87,14 @@ void skip_header(FILE *fp){
 
 }
 
-int main(void){
-  FILE *ofp;
-  FILE *fp;
-  unsigned long length, layer_count;
+void search_layer(FILE *fp, FILE *ofp){
+  unsigned long length, layer_count, layer_length, layer_head_fpt;
   unsigned short slength;
   unsigned char byte;
   unsigned char word[2];
   unsigned char dword[4];
-  unsigned int i;
   char *layer_name;
-
-  fp = fopen(FILEPSD2, "rb");
-  if(fp == NULL){
-    printf("open error\n");
-    exit(0);
-  }
-  ofp = fopen("tmp.txt", "wb");
-
-  skip_header(fp);
-
-  // Skip color mode data section
-  skip_dword(fp, dword);
-
-  // Skip Image Resource Section
-  skip_dword(fp, dword);
-
-  // Length of the layer and mask information section.
-  skip(fp, 4);
-
-  // Length of the layers info section, rounded up to a multiple of 2.
-  skip(fp, 4);
-
-  // number of layers
-  layer_count = read_word(fp, word);
-  printf("%ld\n", layer_count);
+  fpos_t fpos;
 
   // top, left, bottom, right
   skip(fp, 4 * 4);
@@ -152,11 +132,16 @@ int main(void){
 
   // Filler
   fread(&byte, sizeof(byte), 1, fp);
-  /* printf("%x\n", byte); */
+  /* printf("filter zero %x\n", byte); */
 
   // Length of the extra data field ( = the total length of the next five fields).
   fread(&dword, sizeof(dword), 1, fp);
-  length = dword2long(dword);
+  layer_length = dword2long(dword);
+  /* printf("extra %ld\n", layer_length); */
+  /* printf("fp %ld\n", ftell(fp)); */
+
+  // extra field 前の位置
+  fgetpos(fp, &fpos);
 
   // layer mask info
   skip_dword(fp, dword);
@@ -169,14 +154,58 @@ int main(void){
 
   writeline(ofp, layer_name, byte);
   free(layer_name);
+  layer_name = NULL;
+
+  //次のレイヤーへ
+  /* printf("fp %ld\n", ftell(fp)); */
+  fsetpos(fp, &fpos);
+  /* printf("fp %ld\n", ftell(fp)); */
+
+  fseek(fp, layer_length, SEEK_CUR);
+}
+
+int main(void){
+  FILE *ofp;
+  FILE *fp;
+  unsigned long length, layer_count, layer_length, layer_head_fpt;
+  unsigned short slength;
+  unsigned char byte;
+  unsigned char word[2];
+  unsigned char dword[4];
+  unsigned int i;
+  char *layer_name;
+  fpos_t fpos;
+
+  fp = fopen(FILEPSD2, "rb");
+  if(fp == NULL){
+    printf("open error\n");
+    exit(0);
+  }
+  ofp = fopen("tmp.txt", "wb");
+
+  skip_header(fp);
+
+  // Skip color mode data section
+  skip_dword(fp, dword);
+
+  // Skip Image Resource Section
+  skip_dword(fp, dword);
+
+  // Length of the layer and mask information section.
+  read_dword(fp, dword);
+
+  // Length of the layers info section, rounded up to a multiple of 2.
+  skip(fp, 4);
+
+  // number of layers
+  layer_count = read_word(fp, word);
+  // printf("num layers %ld\n", layer_count);
+
+  ///layer records 開始
+  for(i = 0; i < layer_count; i++){
+    search_layer(fp, ofp);
+  }
 
   fclose(ofp);
   fclose(fp);
 }
-
-  /* printf("%ld\n", sizeof(word)); */
-  /* ok = fread(&word, sizeof(word), 1, fp); */
-  /* printf("%ld\n", ftell(fp)); */
-  /* printf("%d\n", word2short(word)); */
-  /* printf("%d\n", word); */
-  //printf("%ld\n", ftell(fp));
